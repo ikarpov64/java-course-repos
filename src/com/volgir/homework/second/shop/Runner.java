@@ -11,7 +11,8 @@ public class Runner {
         Worker vasiliy = new Worker("Василий", 30, "М", new Object[]{hummer, screwdriver});
         Worker maryana = new Worker("Марьяна", 25, "Ж", new Object[]{notebook, pen});
 
-
+        Shop pyatorochka = new Shop(new Object[]{vasiliy, maryana});
+        pyatorochka.informationAboutWorkers();
         vasiliy.boasting();
         maryana.boasting();
     }
