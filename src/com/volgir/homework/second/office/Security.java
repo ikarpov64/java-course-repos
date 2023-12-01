@@ -7,7 +7,7 @@ public class Security {
         this.name = name;
     }
 
-    public void giveAdvance() {
+    public void advanceRequest() {
         System.out.println("Хочу получить аванс!");
     }
 }
