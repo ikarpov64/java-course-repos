@@ -9,16 +9,23 @@ public class Shop {
     }
 
     public void informationAboutWorkers() {
-//      String gender = "";
+      String gender = "";
         for (Object worker : this.workers) {
             if ((((Worker)worker).gender) == "М") {
-                String gender = "мужчина";
+                gender = "мужчина";
             }
             else if ((((Worker)worker).gender) == "Ж") {
-                String gender = "женщина";
+                gender = "женщина";
+            }
+            String[] itemList = new String[2];
+            for (Object item : ((Worker)worker).items) {
+                ((Item)item).name
+
             }
 
-            System.out.println(((Worker)worker).name + ": " + ((Worker)worker).age + gender +" лет, {мужчина или женщина}, список вещей: {набор вещей работника}");
+            System.out.println();
+            System.out.println(((Worker)worker).name + ": " + ((Worker)worker).age + " лет," + gender +
+                    ", список вещей: " +  "{набор вещей работника}");
 
         }
     }
