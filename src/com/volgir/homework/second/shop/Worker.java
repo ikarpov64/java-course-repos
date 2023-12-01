@@ -6,6 +6,18 @@ public class Worker {
     int age;
     String gender;
 
-    String[] items;
+    Object[] items;
 
+    public Worker(String name, int age, String gender, Object[] items) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.items = items;
+    }
+
+    public void boasting() {
+        for (Object item : this.items) {
+            System.out.println(this.name + ": смотрите какая у меня вещь - " + ((Item)item).name);
+        }
+    }
 }
