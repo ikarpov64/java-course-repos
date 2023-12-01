@@ -1,0 +1,8 @@
+package com.volgir.homework.second.shop;
+
+public class Item {
+
+    String name;
+    double weight;
+
+}

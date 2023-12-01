@@ -1,11 +1,19 @@
 package com.volgir.homework.second;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Homework2 {
     public static void main(String[] args) {
-//        ex1();
-//        ex2();
+        System.out.println("Задание №1: \n");
+        ex1();
+        System.out.println("__________________________________________________________________");
+        System.out.println("Задание №2: \n");
+        ex2();
+        System.out.println("__________________________________________________________________");
+        System.out.println("Задание №3: \n");
+        ex3();
+        System.out.println("__________________________________________________________________");
     }
 
     public static void ex1() {
@@ -27,14 +35,45 @@ public class Homework2 {
 
         // С левого верхнего угла к нижнему правому
         int leftUpToRightDownSum = 0;
+
+        for (int indexOfArrays = 0; indexOfArrays < arrayOfNumbers.length; indexOfArrays++) {
+            leftUpToRightDownSum += arrayOfNumbers[indexOfArrays][indexOfArrays];
+        }
+
         // С левого нижнего угла к верхнему правому
         int leftDownToRightUpSum = 0;
+
+        for (int indexOfArrays = 0; indexOfArrays < arrayOfNumbers.length; indexOfArrays++) {
+            leftDownToRightUpSum += arrayOfNumbers[arrayOfNumbers.length - indexOfArrays - 1][indexOfArrays];
+        }
+
+        // С верхнего правого угла к левому нижнему
+        int rightUpToLeftDownSum = 0;
+
+        for (int indexOfArrays = 0; indexOfArrays < arrayOfNumbers.length; indexOfArrays++) {
+            rightUpToLeftDownSum += arrayOfNumbers[indexOfArrays][arrayOfNumbers.length - indexOfArrays - 1];
+        }
+
+        System.out.println("Сумма диагонали от левого верхнего до правого нижнего числа: " + leftUpToRightDownSum);
+        System.out.println("Сумма диагонали от левого нижнего до правого верхнего числа: " + leftDownToRightUpSum);
+        System.out.println("Сумма диагонали от правого верхнего до левого нижнего числа: " + rightUpToLeftDownSum);
+
     }
 
     public static void ex2() {
-        //Перевернуть массив(без сторонних классов), не создавая новый массив. Вывести на экран.
-        //"перевернуть" - значит последние элементы становятся первыми и наоборот.
+        // Перевернуть массив (без сторонних классов), не создавая новый массив. Вывести на экран.
+        // "Перевернуть" - значит, последние элементы становятся первыми, и наоборот.
         int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        System.out.println("Оригинальный массив: " + Arrays.toString(numbers));
+
+        for (int indexOfNumber = 0; indexOfNumber < numbers.length / 2; indexOfNumber++) {
+            int temporaryNumber = numbers[numbers.length - indexOfNumber - 1];
+
+            numbers[numbers.length - indexOfNumber - 1] = numbers[indexOfNumber];
+            numbers[indexOfNumber] = temporaryNumber;
+        }
+
+        System.out.println("Перевернутый массив: " + Arrays.toString(numbers));
     }
 
     public static void ex3() {
@@ -43,27 +82,35 @@ public class Homework2 {
         //Получение случайного числа
         int number = random.nextInt(1000);
 
+        int attemptNumber = 1;
+
+        while (number != 999) {
+            attemptNumber ++;
+            number = random.nextInt(1000);
+        }
+
+        System.out.println("Номер попытки генерации числа '999': " + attemptNumber);
         //Написать код, генерирующий случайные числа до тех пор, пока не сгенерируется 999.
         //Вывести номер попытки, с которой получилось получить случайным образом число 999.
     }
 
     public static void ex4() {
-        //Создать пакет shop. Внутри пакета:
-        //Создать класс Item (вещь). У вещи есть вес и наименование.
-        //Создать класс Worker (работник). У работника есть: имя, возраст, пол(М/Ж), набор вещей.
-        //Работник умеет хвастаться своими вещами: брать по очереди вещь, и кричать:
-        //{Имя работника}: смотрите какая у меня вещь - {имя вещи}.
-        //Создать класс Shop (магазин). У которого есть работники.
-        //Магазин умеет печатать своих работников:
-        //{Имя работника}: {возраст} лет, {мужчина или женщина}, список вещей: {набор вещей работника}
-        //Создать класс Runner. В классе Runner:
-        //Создать 4 вещи: молот (1000гр), отвертка(50гр), тетрадь(30гр), ручка(10гр)
-        //Создать 2 работников:
-        //-Василий,30 лет, мужчина, обладатель молота и отвертки.
-        //-Марьяна,25 лет, женщина, обладательница тетради и ручки.
-        //Создать магазин с работниками выше.
-        //Вызвать у магазина печать.
-        //Вызвать у каждого работника магазина хвастовство его вещами (достать работника из магазина).
+        // * Создать пакет shop. Внутри пакета:
+        // Создать класс Item (вещь). У вещи есть вес и наименование.
+        // Создать класс Worker (работник). У работника есть: имя, возраст, пол(М/Ж), набор вещей.
+        // Работник умеет хвастаться своими вещами: брать по очереди вещь, и кричать:
+        // {Имя работника}: смотрите какая у меня вещь - {имя вещи}.
+        // Создать класс Shop (магазин). У которого есть работники.
+        // Магазин умеет печатать своих работников:
+        // {Имя работника}: {возраст} лет, {мужчина или женщина}, список вещей: {набор вещей работника}.
+        // Создать класс Runner. В классе Runner:
+        // Создать 4 вещи: молот (1000гр), отвертка(50гр), тетрадь(30гр), ручка(10гр)
+        // Создать 2 работников:
+        // -Василий,30 лет, мужчина, обладатель молота и отвертки.
+        // -Марьяна,25 лет, женщина, обладательница тетради и ручки.
+        // Создать магазин с работниками выше.
+        // Вызвать у магазина печать.
+        // Вызвать у каждого работника магазина хвастовство его вещами (достать работника из магазина).
 
     }
 
