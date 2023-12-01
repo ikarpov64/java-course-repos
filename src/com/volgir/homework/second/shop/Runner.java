@@ -8,12 +8,13 @@ public class Runner {
         Item notebook = new Item("Тетрадь", 30);
         Item pen = new Item("Ручка", 10);
 
-        Worker vasiliy = new Worker("Василий", 30, "М", new Object[]{hummer, screwdriver});
-        Worker maryana = new Worker("Марьяна", 25, "Ж", new Object[]{notebook, pen});
+        Worker vasiliy = new Worker("Василий", 30, "мужчина", new Item[]{hummer, screwdriver});
+        Worker maryana = new Worker("Марьяна", 25, "женщина", new Item[]{notebook, pen});
 
-        Shop pyatorochka = new Shop(new Object[]{vasiliy, maryana});
-        pyatorochka.informationAboutWorkers();
-        vasiliy.boasting();
-        maryana.boasting();
+        Shop myShop = new Shop(new Worker[]{vasiliy, maryana});
+        myShop.informationAboutWorkers();
+        for (Worker worker : myShop.workers) {
+            worker.boasting();
+        }
     }
 }

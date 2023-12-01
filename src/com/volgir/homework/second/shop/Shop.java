@@ -1,31 +1,30 @@
 package com.volgir.homework.second.shop;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class Shop {
 
-    Object[] workers;
+    Worker[] workers;
 
-    public Shop(Object[] workers) {
+    public Shop(Worker[] workers) {
         this.workers = workers;
     }
 
     public void informationAboutWorkers() {
-      String gender = "";
-        for (Object worker : this.workers) {
-            if ((((Worker)worker).gender) == "М") {
-                gender = "мужчина";
-            }
-            else if ((((Worker)worker).gender) == "Ж") {
-                gender = "женщина";
-            }
-            String[] itemList = new String[2];
-            for (Object item : ((Worker)worker).items) {
-                ((Item)item).name
+        for (Worker worker : this.workers) {
 
+            String[] itemList = new String[worker.items.length];
+            for (int itemIndex = 0; itemIndex < worker.items.length; itemIndex++) {
+                itemList[itemIndex] = worker.items[itemIndex].name;
             }
 
-            System.out.println();
-            System.out.println(((Worker)worker).name + ": " + ((Worker)worker).age + " лет," + gender +
-                    ", список вещей: " +  "{набор вещей работника}");
+//            System.out.println(worker.name + ": " + worker.age + " лет, " + worker.gender +
+//                    ". Список вещей: " + Arrays.toString(itemList));
+//            "Уважаемая %s%n", name
+
+            System.out.printf("%s: %s лет, %s. Список вещей: %s%n",
+                    worker.name, worker.age, worker.gender, Arrays.toString(itemList));
 
         }
     }

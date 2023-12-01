@@ -6,9 +6,9 @@ public class Worker {
     int age;
     String gender;
 
-    Object[] items;
+    Item[] items;
 
-    public Worker(String name, int age, String gender, Object[] items) {
+    public Worker(String name, int age, String gender, Item[] items) {
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -16,8 +16,8 @@ public class Worker {
     }
 
     public void boasting() {
-        for (Object item : this.items) {
-            System.out.println(this.name + ": смотрите какая у меня вещь - " + ((Item)item).name);
+        for (Item item : this.items) {
+            System.out.printf("%s: смотрите какая у меня вещь - %s%n", this.name, item.name);
         }
     }
 }

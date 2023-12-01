@@ -157,11 +157,11 @@ public class Homework1 {
         profitBeforeTaxes = income - costs;  // Прибыль до налогов.
 
         double taxes;
-        if (profitBeforeTaxes >= 2_500_000) {
+        if (profitBeforeTaxes > 2_000_000) {
             taxes = 1_000_000 * taxRateBeforeMillion +
                     1_000_000 * taxRateBeforeTwoMillion +
                     taxRateAfterTwoMillion * (profitBeforeTaxes - 2_000_000);
-        } else if (profitBeforeTaxes >= 1_500_000) {
+        } else if (profitBeforeTaxes > 1_000_000) {
             taxes = 1_000_000 * taxRateBeforeMillion +
                     taxRateBeforeTwoMillion * (profitBeforeTaxes - 1_000_000);
         } else if (profitBeforeTaxes > 0) {
