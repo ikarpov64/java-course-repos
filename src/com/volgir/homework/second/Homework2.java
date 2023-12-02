@@ -111,7 +111,7 @@ public class Homework2 {
         // + Создать магазин с работниками выше.
         // + Вызвать у магазина печать.
         // + Вызвать у каждого работника магазина хвастовство его вещами (достать работника из магазина).
-        Runner.main(new String[]{});
+        Runner.main(null);
     }
 
     public static void ex5() {
@@ -132,6 +132,6 @@ public class Homework2 {
         // + Секретаря.
         // + Создать офис.
         // + Запустить рабочий день в офисе
-        com.volgir.homework.second.office.Runner.main(new String[]{});
+        com.volgir.homework.second.office.Runner.main(null);
     }
 }
