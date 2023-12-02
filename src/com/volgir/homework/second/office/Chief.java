@@ -1,6 +1,7 @@
 package com.volgir.homework.second.office;
 
 public class Chief {
+    String employeePosition = "Шеф";
     String name;
 
     public Chief(String name) {
@@ -8,6 +9,6 @@ public class Chief {
     }
 
     public void pushTheManager(String name) {
-        System.out.printf("%s быстрее!%n", name);
+        System.out.printf("%s: %s быстрее!%n", employeePosition, name);
     }
 }

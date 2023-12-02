@@ -1,7 +1,7 @@
 package com.volgir.homework.second.office;
 
 public class Manager {
-
+    String employeePosition = "Менеджер";
     String name;
 
     public Manager(String name) {
@@ -9,6 +9,6 @@ public class Manager {
     }
 
     public void scream() {
-        System.out.println("Я ничего не успеваю, помогите!");
+        System.out.printf("%s: Я ничего не успеваю, помогите!%n", employeePosition);
     }
 }

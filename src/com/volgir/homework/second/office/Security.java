@@ -1,6 +1,7 @@
 package com.volgir.homework.second.office;
 
 public class Security {
+    String employeePosition = "Охранник";
     String name;
 
     public Security(String name) {
@@ -8,6 +9,6 @@ public class Security {
     }
 
     public void advanceRequest() {
-        System.out.println("Хочу получить аванс!");
+        System.out.printf("%s: Хочу получить аванс!%n", employeePosition);
     }
 }
