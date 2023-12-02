@@ -24,4 +24,10 @@ public class Shop {
 
         }
     }
+
+    public void workersBoasting() {
+        for (Worker worker : this.workers) {
+            worker.boasting();
+        }
+    }
 }

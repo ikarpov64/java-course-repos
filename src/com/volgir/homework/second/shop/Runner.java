@@ -13,8 +13,6 @@ public class Runner {
 
         Shop myShop = new Shop(new Worker[]{vasiliy, maryana});
         myShop.informationAboutWorkers();
-        for (Worker worker : myShop.workers) {
-            worker.boasting();
-        }
+        myShop.workersBoasting();
     }
 }
