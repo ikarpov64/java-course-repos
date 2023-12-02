@@ -5,7 +5,6 @@ public class Worker {
     String name;
     int age;
     String gender;
-
     Item[] items;
 
     public Worker(String name, int age, String gender, Item[] items) {

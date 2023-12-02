@@ -16,7 +16,6 @@ public class Homework2 {
         System.out.println("Задание №3: \n");
         ex3();
         System.out.println("__________________________________________________________________");
-        ex4();
     }
 
     public static void ex1() {

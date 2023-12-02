@@ -19,10 +19,6 @@ public class Shop {
                 itemList[itemIndex] = worker.items[itemIndex].name;
             }
 
-//            System.out.println(worker.name + ": " + worker.age + " лет, " + worker.gender +
-//                    ". Список вещей: " + Arrays.toString(itemList));
-//            "Уважаемая %s%n", name
-
             System.out.printf("%s: %s лет, %s. Список вещей: %s%n",
                     worker.name, worker.age, worker.gender, Arrays.toString(itemList));
 
