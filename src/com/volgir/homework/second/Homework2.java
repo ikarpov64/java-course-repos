@@ -16,6 +16,11 @@ public class Homework2 {
         System.out.println("Задание №3: \n");
         ex3();
         System.out.println("__________________________________________________________________");
+        System.out.println("Задание №4: \n");
+        ex4();
+        System.out.println("__________________________________________________________________");
+        System.out.println("Задание №5: \n");
+        ex5();
     }
 
     public static void ex1() {
@@ -75,9 +80,9 @@ public class Homework2 {
         //Дан распределитель случайных чисел
         Random random = new Random(1);
         //Получение случайного числа
-        int number = random.nextInt(1000);
+        int number = random.nextInt(1000); // Первая попытка
 
-        int attemptNumber = 1;
+        int attemptNumber = 1; // Первая попытка при инициализации переменной number, следовательно, 1.
 
         while (number != 999) {
             attemptNumber ++;
@@ -106,6 +111,7 @@ public class Homework2 {
         // + Создать магазин с работниками выше.
         // + Вызвать у магазина печать.
         // + Вызвать у каждого работника магазина хвастовство его вещами (достать работника из магазина).
+        Runner.main(new String[]{});
     }
 
     public static void ex5() {
@@ -126,5 +132,6 @@ public class Homework2 {
         // + Секретаря.
         // + Создать офис.
         // + Запустить рабочий день в офисе
+        com.volgir.homework.second.office.Runner.main(new String[]{});
     }
 }
