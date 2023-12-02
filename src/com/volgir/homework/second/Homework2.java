@@ -84,10 +84,19 @@ public class Homework2 {
 
         int attemptNumber = 1; // Первая попытка при инициализации переменной number, следовательно, 1.
 
+
+        // Вариант 1
         while (number != 999) {
             attemptNumber ++;
             number = random.nextInt(1000);
         }
+
+//        // Вариант 2
+//        do {
+//            number = random.nextInt(1000);
+//            attemptNumber ++;
+//        }
+//        while (number != 999);
 
         System.out.println("Номер попытки генерации числа '999': " + attemptNumber);
         //Написать код, генерирующий случайные числа до тех пор, пока не сгенерируется 999.
