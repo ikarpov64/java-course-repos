@@ -84,7 +84,6 @@ public class Homework2 {
 
         int attemptNumber = 1; // Первая попытка при инициализации переменной number, следовательно, 1.
 
-
         // Вариант 1
         while (number != 999) {
             attemptNumber ++;
