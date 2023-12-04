@@ -1,11 +1,14 @@
-package com.volgir.homework;
+package com.volgir.homework.first;
+
+import static com.volgir.homework.first.Product.*;
 
 public class Homework1 {
     public static void main(String[] args) {
-        ex1();
-        ex2();
-        ex3();
-        ex4();
+//        ex1();
+//        ex2();
+//        ex3();
+//        ex4();
+        ex5();
     }
 
     public static void ex1() {
@@ -173,5 +176,17 @@ public class Homework1 {
         profitAfterTaxes = profitBeforeTaxes - taxes;  // Прибыль после налогов.
         System.out.printf("Прибыль после налогов: %s руб.%n", profitAfterTaxes);
 
+    }
+
+    public static void ex5() {
+        // Получение цен продуктов
+        int sausagePrice = SAUSAGE.getPrice();
+        int hamPrice = HAM.getPrice();
+        int neckPrice = NECK.getPrice();
+
+        // Вывод цен продуктов
+        System.out.println("Price of SAUSAGE: " + sausagePrice);
+        System.out.println("Price of HAM: " + hamPrice);
+        System.out.println("Price of NECK: " + neckPrice);
     }
 }
