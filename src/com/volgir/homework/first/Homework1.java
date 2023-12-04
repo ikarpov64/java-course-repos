@@ -210,6 +210,23 @@ public class Homework1 {
         throw new RuntimeException("Неизвестный продукт");
     }
 
+    public static double calcTax(long profitBeforeTaxes) {
+        double totalTax;
+        if (profitBeforeTaxes > TAX_RATE_BEFORE_TWO_MILLION.getLimit()) {
+            double totalTaxBeforeMillion = TAX_RATE_BEFORE_MILLION.getLimit() * TAX_RATE_BEFORE_MILLION.getTaxRate();
+            double totalTaxBeforeTwoMillion = TAX_RATE_AFTER_TWO_MILLION.getLimit() * TAX_RATE_BEFORE_TWO_MILLION.getTaxRate();
+            totalTax = TAX_RATE_AFTER_TWO_MILLION.getTaxRate() * (profitBeforeTaxes - TAX_RATE_AFTER_TWO_MILLION.getLimit()) + totalTaxBeforeMillion + totalTaxBeforeTwoMillion;
+        } else if (profitBeforeTaxes > 1_000_000) {
+            totalTax = 1_000_000 * taxRateBeforeMillion +
+                    taxRateBeforeTwoMillion * (profitBeforeTaxes - 1_000_000);
+        } else if (profitBeforeTaxes > 0) {
+            totalTax = profitBeforeTaxes * taxRateBeforeMillion;
+        } else {
+            totalTax = 0;
+        }
+        return totalTax;
+    }
+
     public static void ex5() {
         // Получение цен продуктов
         int sausagePrice = SAUSAGE.getPrice();
