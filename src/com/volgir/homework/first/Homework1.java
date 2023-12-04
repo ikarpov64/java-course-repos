@@ -212,9 +212,19 @@ public class Homework1 {
 
     public static double calcTax(long profitBeforeTaxes) {
         double totalTax;
-        if (profitBeforeTaxes > TAX_RATE_BEFORE_TWO_MILLION.getLimit()) {
-            double totalTaxBeforeMillion = TAX_RATE_BEFORE_MILLION.getLimit() * TAX_RATE_BEFORE_MILLION.getTaxRate();
-            double totalTaxBeforeTwoMillion = TAX_RATE_AFTER_TWO_MILLION.getLimit() * TAX_RATE_BEFORE_TWO_MILLION.getTaxRate();
+        double firstLimit = TAX_RATE_BEFORE_MILLION.getLimit();
+        double secondLimit = TAX_RATE_BEFORE_TWO_MILLION.getLimit();
+//        long third = TAX_RATE_AFTER_TWO_MILLION.getLimit();
+        double taxRateBeforeMillion = TAX_RATE_BEFORE_MILLION.getTaxRate();
+        double taxRateBeforeTwoMillion = TAX_RATE_BEFORE_TWO_MILLION.getTaxRate();
+
+
+        if (profitBeforeTaxes > secondLimit) {
+            double totalTaxBeforeMillion = firstLimit * taxRateBeforeMillion;
+            double totalTaxBeforeTwoMillion = (secondLimit - firstLimit - 1) * taxRateBeforeTwoMillion;
+
+            totalTax = profitBeforeTaxes;
+
             totalTax = TAX_RATE_AFTER_TWO_MILLION.getTaxRate() * (profitBeforeTaxes - TAX_RATE_AFTER_TWO_MILLION.getLimit()) + totalTaxBeforeMillion + totalTaxBeforeTwoMillion;
         } else if (profitBeforeTaxes > 1_000_000) {
             totalTax = 1_000_000 * taxRateBeforeMillion +
