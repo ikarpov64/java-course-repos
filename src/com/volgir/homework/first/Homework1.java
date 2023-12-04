@@ -1,6 +1,7 @@
 package com.volgir.homework.first;
 
 import static com.volgir.homework.first.Product.*;
+import static com.volgir.homework.first.TaxRates.*;
 
 public class Homework1 {
     public static void main(String[] args) {
@@ -104,6 +105,27 @@ public class Homework1 {
         // Шейки 6988кг
 
         // Входные данные по количеству проданных товаров.
+        int sausageQty = 2000;
+        int sausageCost = getProductCost(SAUSAGE, sausageQty);
+
+        int hamQty = 8511;
+        int hamCost = getProductCost(HAM, sausageQty);
+
+        int neckQty = 6988;
+        int neckCost = getProductCost(NECK, neckQty);
+
+        // Доход
+        int income = SAUSAGE.getPrice() * sausageQty +
+                HAM.getPrice() * hamQty +
+                NECK.getPrice() * neckQty;
+
+        int overheads = 1_000_000;
+        int outcome = sausageCost * sausageQty +
+                hamCost * hamQty +
+                neckCost * neckQty + overheads;
+
+        long profitBeforeTaxes = income - outcome;
+
         int sausageSoldCount = 2000;
         int hamSoldCount = 8511;
         int neckSoldCount = 6988;
@@ -127,13 +149,9 @@ public class Homework1 {
         double taxRateBeforeTwoMillion = 0.10;
         double taxRateAfterTwoMillion = 0.13;
 
-        int profitBeforeTaxes;
+//        int profitBeforeTaxes;
         double profitAfterTaxes;
 
-        // Доход с продаж: (sellingPrice * sold)
-        int sausageIncome = sausageSellingPrice * sausageSoldCount;
-        int hamIncome = hamSellingPrice * hamSoldCount;
-        int neckIncome = neckSellingPrice * neckSoldCount;
 
         // Себестоимость колбасы:
         if (sausageSoldCount >= 2000) {
@@ -154,7 +172,6 @@ public class Homework1 {
             neckFinalCost = neckSoldCount * neckCostPrice2 ;
         }
 
-        int income = sausageIncome + hamIncome + neckIncome;  // Доход компании.
         int costs = sausageFinalCost + hamFinalCost + neckFinalCost + 1_000_000; // Расходы компании.
 
         profitBeforeTaxes = income - costs;  // Прибыль до налогов.
@@ -176,6 +193,21 @@ public class Homework1 {
         profitAfterTaxes = profitBeforeTaxes - taxes;  // Прибыль после налогов.
         System.out.printf("Прибыль после налогов: %s руб.%n", profitAfterTaxes);
 
+    }
+    public static int getProductCost(Product product, int countProduct) {
+        if (product == SAUSAGE) {
+            if (countProduct >= 2000) {
+                return 404;
+            } else if (countProduct >= 1000) {
+                return 408;
+            }
+            return 412;
+        } else if (product == HAM) {
+            return 275;
+        } else if (product == NECK) {
+            return countProduct < 500 ? 311 : 299;
+        }
+        throw new RuntimeException("Неизвестный продукт");
     }
 
     public static void ex5() {
