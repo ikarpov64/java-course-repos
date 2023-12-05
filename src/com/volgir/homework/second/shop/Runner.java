@@ -8,8 +8,8 @@ public class Runner {
         Item notebook = new Item("Тетрадь", 30);
         Item pen = new Item("Ручка", 10);
 
-        Worker vasiliy = new Worker("Василий", 30, "мужчина", new Item[]{hummer, screwdriver});
-        Worker maryana = new Worker("Марьяна", 25, "женщина", new Item[]{notebook, pen});
+        Worker vasiliy = new Worker("Василий", 30, true, new Item[]{hummer, screwdriver});
+        Worker maryana = new Worker("Марьяна", 25, false, new Item[]{notebook, pen});
 
         Shop myShop = new Shop(new Worker[]{vasiliy, maryana});
         myShop.informationAboutWorkers();
