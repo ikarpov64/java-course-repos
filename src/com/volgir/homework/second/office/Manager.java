@@ -1,11 +1,15 @@
 package com.volgir.homework.second.office;
 
 public class Manager {
-    String employeePosition = "Менеджер";
-    String name;
+    private String employeePosition = "Менеджер";
+    private String name;
 
     public Manager(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void scream() {

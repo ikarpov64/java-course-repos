@@ -1,11 +1,15 @@
 package com.volgir.homework.second.office;
 
 public class Chief {
-    String employeePosition = "Шеф";
-    String name;
+    private final String employeePosition = "Шеф";
+    private String name;
 
     public Chief(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void pushTheManager(String name) {

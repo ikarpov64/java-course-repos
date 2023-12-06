@@ -1,10 +1,10 @@
 package com.volgir.homework.second.office;
 
 public class Office {
-    Chief chief;
-    Manager manager;
-    Secretary secretary;
-    Security security;
+    private Chief chief;
+    private Manager manager;
+    private Secretary secretary;
+    private Security security;
 
     public Office(Chief chief, Manager manager, Secretary secretary, Security security) {
         this.chief = chief;
@@ -14,9 +14,9 @@ public class Office {
     }
 
     public void workingDay() {
-        chief.pushTheManager(manager.name);
+        chief.pushTheManager(manager.getName());
         manager.scream();
         security.advanceRequest();
-        secretary.calmDown(chief.name, manager.name, security.name);
+        secretary.calmDown(chief.getName(), manager.getName(), security.getName());
     }
 }

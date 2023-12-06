@@ -2,11 +2,10 @@ package com.volgir.homework.second.shop;
 
 public class Worker {
 
-    String name;
-    int age;
-    String gender;
-    Boolean isMale;
-    Item[] items;
+    private String name;
+    private final int age;
+    private final Boolean isMale;
+    private Item[] items;
 
     public Worker(String name, int age, Boolean isMale, Item[] items) {
         this.name = name;
@@ -17,8 +16,20 @@ public class Worker {
 
     public void boasting() {
         for (Item item : this.items) {
-            System.out.printf("%s: смотрите какая у меня вещь - %s%n", this.name, item.name);
+            System.out.printf("%s: смотрите какая у меня вещь - %s%n", this.name, item.getName());
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Item[] getItems() {
+        return items;
     }
 
     public String getMale() {

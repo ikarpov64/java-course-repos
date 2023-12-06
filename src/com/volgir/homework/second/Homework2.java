@@ -1,7 +1,6 @@
 package com.volgir.homework.second;
 
 import com.volgir.homework.second.shop.Runner;
-
 import java.util.Arrays;
 import java.util.Random;
 
@@ -42,21 +41,21 @@ public class Homework2 {
 
         // С левого верхнего угла к нижнему правому
         // С левого нижнего угла к верхнему правому
-        // С верхнего правого угла к левому нижнему
 
         int leftUpToRightDownSum = 0;
         int leftDownToRightUpSum = 0;
-        int rightUpToLeftDownSum = 0;
 
-        for (int indexOfArrays = 0; indexOfArrays < arrayOfNumbers.length; indexOfArrays++) {
+        int arrayLength = arrayOfNumbers.length;
+        for (int indexOfArrays = 0; indexOfArrays < arrayLength; indexOfArrays++) {
             leftUpToRightDownSum += arrayOfNumbers[indexOfArrays][indexOfArrays];
-            leftDownToRightUpSum += arrayOfNumbers[arrayOfNumbers.length - indexOfArrays - 1][indexOfArrays];
-            rightUpToLeftDownSum += arrayOfNumbers[indexOfArrays][arrayOfNumbers.length - indexOfArrays - 1];
+            leftDownToRightUpSum += arrayOfNumbers[arrayLength - indexOfArrays - 1][indexOfArrays];
         }
 
-        System.out.println("Сумма диагонали от левого верхнего до правого нижнего числа: " + leftUpToRightDownSum);
-        System.out.println("Сумма диагонали от левого нижнего до правого верхнего числа: " + leftDownToRightUpSum);
-        System.out.println("Сумма диагонали от правого верхнего до левого нижнего числа: " + rightUpToLeftDownSum);
+        String leftUpToRightDown = "Сумма диагонали от левого верхнего до правого нижнего числа: ";
+        String leftDownToRightUp = "Сумма диагонали от левого нижнего до правого верхнего числа: ";
+
+        System.out.println(leftUpToRightDown + leftUpToRightDownSum);
+        System.out.println(leftDownToRightUp + leftDownToRightUpSum);
 
     }
 
@@ -72,7 +71,6 @@ public class Homework2 {
             numbers[numbers.length - indexOfNumber - 1] = numbers[indexOfNumber];
             numbers[indexOfNumber] = temporaryNumber;
         }
-
         System.out.println("Перевернутый массив: " + Arrays.toString(numbers));
     }
 
@@ -82,21 +80,13 @@ public class Homework2 {
         //Получение случайного числа
         int number = random.nextInt(1000); // Первая попытка
 
-        int attemptNumber = 1; // Первая попытка при инициализации переменной number, следовательно, 1.
+        int attemptNumber = 1;
 
         // Вариант 1
         while (number != 999) {
-            attemptNumber ++;
+            attemptNumber++;
             number = random.nextInt(1000);
         }
-
-//        // Вариант 2
-//        do {
-//            number = random.nextInt(1000);
-//            attemptNumber ++;
-//        }
-//        while (number != 999);
-
         System.out.println("Номер попытки генерации числа '999': " + attemptNumber);
         //Написать код, генерирующий случайные числа до тех пор, пока не сгенерируется 999.
         //Вывести номер попытки, с которой получилось получить случайным образом число 999.
@@ -110,7 +100,8 @@ public class Homework2 {
         // + {Имя работника}: смотрите какая у меня вещь - {имя вещи}.
         // + Создать класс Shop (магазин). У которого есть работники.
         // + Магазин умеет печатать своих работников:
-        // + {Имя работника}: {возраст} лет, {мужчина или женщина}, список вещей: {набор вещей работника}.
+        // + {Имя работника}: {возраст} лет, {мужчина или женщина},
+        // список вещей: {набор вещей работника}.
         // + Создать класс Runner. В классе Runner:
         // + Создать 4 вещи: молот (1000гр), отвертка(50гр), тетрадь(30гр), ручка(10гр)
         // + Создать 2 работников:
@@ -118,7 +109,8 @@ public class Homework2 {
         // + - Марьяна,25 лет, женщина, обладательница тетради и ручки.
         // + Создать магазин с работниками выше.
         // + Вызвать у магазина печать.
-        // + Вызвать у каждого работника магазина хвастовство его вещами (достать работника из магазина).
+        // + Вызвать у каждого работника магазина хвастовство его вещами
+        // (достать работника из магазина).
         Runner.main(null);
     }
 
