@@ -3,21 +3,24 @@ package com.volgir.homework.third.ex1.types_of_trees;
 import com.volgir.homework.third.ex1.Tree;
 
 public abstract class Leafy extends Tree {
-    protected boolean isLeaves;
+    protected boolean hasLeaves;
 
-    public Leafy(int age, boolean isLeaves) {
+    public Leafy(int age, boolean hasLeaves) {
         super(age);
-        this.isLeaves = isLeaves;
+        this.hasLeaves = hasLeaves;
     }
 
     public void leavesDown() {
-        this.isLeaves = false;
-        System.out.println("Листья опадают с дерева");
+        if (this.hasLeaves) {
+            this.hasLeaves = false;
+            System.out.println("Листья опадают с дерева");
+        } else {
+            System.out.println("На дереве нет листьев");
+        }
     }
 
     public void leavesBloom() {
-        this.isLeaves = true;
+        this.hasLeaves = true;
         System.out.println("Дерево цветет, листья растут.");
     }
-
 }

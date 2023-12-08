@@ -8,8 +8,4 @@ public class Pine extends Conifer {
     public Pine(int age, boolean isLargeNeedles) {
         super(age, isLargeNeedles);
     }
-
-    public boolean isLargeNeedles() {
-        return isLargeNeedles;
-    }
 }
