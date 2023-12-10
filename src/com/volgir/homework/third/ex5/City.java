@@ -9,7 +9,7 @@ public final class City {
 
     public City(String cityName, House[] houses) {
         this.cityName = cityName;
-        this.houses = houses;
+        this.houses = Arrays.copyOf(houses, houses.length);
     }
 
     public void renameHouse(House house, String newName, int newNumber) {

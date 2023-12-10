@@ -1,6 +1,6 @@
 package com.volgir.homework.third.ex5;
 
-public final class House {
+public class House {
     private String streetName;
     private int numberOfHouse;
 
