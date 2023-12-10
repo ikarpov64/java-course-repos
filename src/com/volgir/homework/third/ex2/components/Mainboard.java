@@ -8,4 +8,9 @@ public class Mainboard {
         this.name = name;
         this.size = size;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Плата: %s, размеры: %s", name, size);
+    }
 }

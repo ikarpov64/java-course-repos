@@ -6,17 +6,16 @@ import com.volgir.homework.third.ex2.components.Os;
 
 public class Iphone extends Phone {
 
-    public Iphone() {}
-
-    public void setCam(Cam cam) {
-        this.cam = cam;
+    public Iphone(String model) {
+        super(model);
     }
 
-    public void setMainboard(Mainboard mainboard) {
-        this.mainboard = mainboard;
-    }
-
-    public void setOs(Os os) {
-        this.os = os;
+    @Override
+    public String toString() {
+        return String.format("iPhone %s: %s; %s; %s.",
+                model,
+                mainboard != null ? mainboard : "Плата не установлена",
+                os != null ? os : "ОС не установлена",
+                cam != null ? cam : "Камера не установлена");
     }
 }

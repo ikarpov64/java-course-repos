@@ -1,16 +1,20 @@
 package com.volgir.homework.third.ex2;
 
-import java.util.Arrays;
+import com.volgir.homework.third.ex2.components.Cam;
+import com.volgir.homework.third.ex2.components.Mainboard;
+import com.volgir.homework.third.ex2.components.Os;
 
-public class Samsung {
-    private String os;
-    private Object[] samsungParts;
+public class Samsung extends Phone {
+    public Samsung(String model) {
+        super(model);
+    }
 
     @Override
     public String toString() {
-        return "Samsung{" +
-                "os='" + os + '\'' +
-                ", samsungParts=" + Arrays.toString(samsungParts) +
-                '}';
+        return String.format("Samsung %s: %s; %s; %s.",
+                model,
+                mainboard != null ? mainboard : "Плата не установлена",
+                os != null ? os : "ОС не установлена",
+                cam != null ? cam : "Камера не установлена");
     }
 }

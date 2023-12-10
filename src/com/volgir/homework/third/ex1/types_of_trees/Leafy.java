@@ -10,7 +10,7 @@ public abstract class Leafy extends Tree {
         this.hasLeaves = hasLeaves;
     }
 
-    public void leavesDown() {
+    public void leavesFall() {
         if (this.hasLeaves) {
             this.hasLeaves = false;
             System.out.println("Листья опадают с дерева");

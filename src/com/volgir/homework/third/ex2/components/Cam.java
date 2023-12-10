@@ -8,4 +8,9 @@ public class Cam {
         this.zoom = zoom;
         this.hasFlash = hasFlash;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Камера: %sx zoom. Вспышка %s", zoom, hasFlash ? "имеется" : "отсутствует");
+    }
 }

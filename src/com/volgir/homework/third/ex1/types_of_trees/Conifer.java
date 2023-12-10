@@ -3,10 +3,10 @@ package com.volgir.homework.third.ex1.types_of_trees;
 import com.volgir.homework.third.ex1.Tree;
 
 public abstract class Conifer extends Tree {
-    protected boolean isLargeNeedles;
+    protected String typesOfNeedles;
 
-    public Conifer(int age, boolean isLargeNeedles) {
+    public Conifer(int age, String typesOfNeedles) {
         super(age);
-        this.isLargeNeedles = isLargeNeedles;
+        this.typesOfNeedles = typesOfNeedles;
     }
 }

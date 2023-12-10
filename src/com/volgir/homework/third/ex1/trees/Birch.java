@@ -10,6 +10,5 @@ public class Birch extends Leafy {
     public void leavesBloom() {
         super.leavesBloom();
         System.out.println("Береза источает аллерген");
-
     }
 }

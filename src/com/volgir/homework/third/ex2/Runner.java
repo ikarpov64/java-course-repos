@@ -8,13 +8,15 @@ import com.volgir.homework.third.ex2.components.Os;
 public class Runner {
     public static void main(String[] args) {
 
-        Iphone iphone = new Iphone();
-        Cam iphoneCam = new Cam(15, true);
-        Mainboard iphoneMainboard = new Mainboard("7uik", "15х12х13");
-        Os iphoneOs = new Os("Ios");
+        Iphone iphone = new Iphone("15");
+        Samsung samsung = new Samsung("Galaxy");
 
-
+        System.out.println(iphone);
+        System.out.println(samsung);
         Factory myFactory = new Factory();
-        myFactory.buildPhone(iphone, iphoneCam, iphoneMainboard, iphoneOs);
+        myFactory.buildPhone(iphone);
+        myFactory.buildPhone(samsung);
+        System.out.println(iphone);
+        System.out.println(samsung);
     }
 }
