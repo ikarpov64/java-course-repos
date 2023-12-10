@@ -1,9 +1,17 @@
 package com.volgir.homework.third;
 
+import com.volgir.homework.third.ex3.Pyramid1;
+import com.volgir.homework.third.ex4.LotteryTicket;
+
 public class Homework3 {
     public static void main(String[] args) {
         //В этом дз уже будет проверяться наличие корректных модификаторов доступа
         //у классов, атрибутов, методов
+        System.out.println("________________________________________");
+        ex3();
+        System.out.println("________________________________________");
+        ex4();
+        System.out.println("________________________________________");
     }
 
     public static void ex1() {
@@ -66,6 +74,8 @@ public class Homework3 {
         // MMM
 
         //создать здесь pyramid1 и вызвать print
+        Pyramid1 pyramid1 = new Pyramid1();
+        pyramid1.print();
     }
 
     public static void ex4() {
@@ -79,6 +89,12 @@ public class Homework3 {
         //
         //Создать здесь 100 билетов, и проверить по каждому удачу.
         //Итоговая сумма выигрыша после проверки удачи 100 билетов должна составить 6_000.
+        for (int i = 0; i < 110; i++) {
+            LotteryTicket ticket = new LotteryTicket();
+            ticket.checkLuck();
+        }
+        System.out.println(LotteryTicket.getWinningAmount());
+
     }
 
     public static void ex5() {

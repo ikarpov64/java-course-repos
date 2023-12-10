@@ -33,9 +33,10 @@ public class Worker {
     }
 
     public String getMale() {
-        if (isMale) {
-            return "мужчина";
-        }
-        return "женщина";
+        return isMale ? "мужчина" : "женщина";
+//        if (isMale) {
+//            return "мужчина";
+//        }
+//        return "женщина";
     }
 }

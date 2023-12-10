@@ -1,7 +1,7 @@
 package com.volgir.homework.second.office;
 
 public class Security {
-    String employeePosition = "Охранник";
+    private final String employeePosition = "Охранник";
     private String name;
 
     public Security(String name) {

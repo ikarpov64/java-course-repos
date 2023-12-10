@@ -1,7 +1,7 @@
 package com.volgir.homework.second.office;
 
 public class Secretary {
-    private String employeePosition = "Секретарь";
+    private final String employeePosition = "Секретарь";
 
     public void calmDown(String chiefName, String managerName, String securityName) {
         System.out.printf("%s: %s не волнуйтесь, %s все успеет. %s - подождите!%n",

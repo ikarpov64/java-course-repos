@@ -1,7 +1,7 @@
 package com.volgir.homework.second.office;
 
 public class Manager {
-    private String employeePosition = "Менеджер";
+    private final String employeePosition = "Менеджер";
     private String name;
 
     public Manager(String name) {
