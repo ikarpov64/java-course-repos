@@ -9,6 +9,11 @@ public class House {
         this.numberOfHouse = numberOfHouse;
     }
 
+    public House(House house) {
+        streetName = house.streetName;
+        numberOfHouse = house.numberOfHouse;
+    }
+
     public String getStreetName() {
         return streetName;
     }
@@ -19,12 +24,10 @@ public class House {
 
     public void setStreetName(String streetName) {
         this.streetName = streetName;
-        //System.out.println("Нельзя изменить название улицы.");
     }
 
     public void setNumberOfHouse(int numberOfHouse) {
         this.numberOfHouse = numberOfHouse;
-        //System.out.println("Нельзя изменить номер дома.");
     }
 
     @Override

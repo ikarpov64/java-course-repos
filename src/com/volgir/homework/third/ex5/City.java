@@ -5,16 +5,31 @@ import java.util.Arrays;
 public final class City {
 
     private final String cityName;
-    public final House[] houses;
+    private final House[] houses;
 
     public City(String cityName, House[] houses) {
         this.cityName = cityName;
-        this.houses = Arrays.copyOf(houses, houses.length);
+        this.houses = houses;
     }
 
-    public void renameHouse(House house, String newName, int newNumber) {
-        house.setNumberOfHouse(newNumber);
-        house.setStreetName(newName);
+    public House[] getHouse() {
+        House[] newHouses = new House[houses.length];
+        for (int i = 0; i < houses.length; i++) {
+            newHouses[i] = new House(houses[i]);
+        }
+        return newHouses;
+    }
+
+    public House[] getHouses() {
+        return replaceArrayOfHouses();
+    }
+
+    private House[] replaceArrayOfHouses() {
+        House[] replacedArrayOfHouses = new House[houses.length];
+        for (int i = 0; i < houses.length; i++) {
+            replacedArrayOfHouses[i] = new House(houses[i].getStreetName(), houses[i].getNumberOfHouse());
+        }
+        return replacedArrayOfHouses;
     }
 
     @Override
