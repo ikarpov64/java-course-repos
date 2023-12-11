@@ -12,7 +12,7 @@ public class Iphone extends Phone {
 
     @Override
     public String toString() {
-        return String.format("iPhone %s: %s; %s; %s.",
+        return String.format("%s: %s; %s; %s.",
                 model,
                 mainboard != null ? mainboard : "Плата не установлена",
                 os != null ? os : "ОС не установлена",

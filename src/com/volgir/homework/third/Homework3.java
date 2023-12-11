@@ -4,6 +4,10 @@ import com.volgir.homework.third.ex1.Tree;
 import com.volgir.homework.third.ex1.trees.Birch;
 import com.volgir.homework.third.ex1.trees.Pine;
 import com.volgir.homework.third.ex1.trees.Spruce;
+import com.volgir.homework.third.ex2.Factory;
+import com.volgir.homework.third.ex2.Iphone;
+import com.volgir.homework.third.ex2.Phone;
+import com.volgir.homework.third.ex2.Samsung;
 import com.volgir.homework.third.ex3.Pyramid1;
 import com.volgir.homework.third.ex4.LotteryTicket;
 
@@ -11,7 +15,10 @@ public class Homework3 {
     public static void main(String[] args) {
         //В этом дз уже будет проверяться наличие корректных модификаторов доступа
         //у классов, атрибутов, методов
+        System.out.println("________________________________________");
         ex1();
+        System.out.println("________________________________________");
+        ex2();
         System.out.println("________________________________________");
         ex3();
         System.out.println("________________________________________");
@@ -68,6 +75,14 @@ public class Homework3 {
         //В "фабрике" должно быть два публичных метода с одним названием:
         //один будет собирать iphone, второй будет собирать samsung.
         //В данном методе создать два телефона, собрать их, распечатать.
+
+        Iphone iphone = new Iphone("iPhone 15");
+        Samsung samsung = new Samsung("Samsung Galaxy");
+        Factory myFactory = new Factory();
+        myFactory.buildPhone(iphone);
+        myFactory.buildPhone(samsung);
+        System.out.println(iphone);
+        System.out.println(samsung);
     }
 
     public static void ex3() {

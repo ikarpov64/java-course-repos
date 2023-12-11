@@ -11,6 +11,8 @@ public class Cam {
 
     @Override
     public String toString() {
-        return String.format("Камера: %sx zoom. Вспышка %s", zoom, hasFlash ? "имеется" : "отсутствует");
+        return String.format("Камера: %sx zoom. Вспышка %s",
+                zoom,
+                hasFlash ? "имеется" : "отсутствует");
     }
 }
