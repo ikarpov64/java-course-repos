@@ -26,6 +26,6 @@ public final class City {
 
     @Override
     public String toString() {
-        return String.format("г.%s. Список улиц:\n" + Arrays.toString(houses), cityName);
+        return String.format("г.%s. Список улиц: " + Arrays.toString(houses), cityName);
     }
 }

@@ -124,7 +124,6 @@ public class Homework3 {
             ticket.checkLuck();
         }
         System.out.println(LotteryTicket.getWinningAmount());
-
     }
 
     public static void ex5() {
@@ -147,8 +146,14 @@ public class Homework3 {
         // Создаем город, с массивом созданных домов.
         City myCity = new City("Вольск", new House[] {house1, house2});
 
-        // Вызываем печать города.
-        System.out.println(myCity);
+        // Вызываем печать города до изменений.
+        System.out.printf("До изменений:\n%s\n", myCity);
 
+        // Получаем массив домов, по индексу в первом доме меняем данные.
+        myCity.getHouses()[0].setStreetName("Новая улица");
+        myCity.getHouses()[0].setNumberOfHouse(111);
+
+        // Вызываем печать после изменений.
+        System.out.printf("После изменений:\n%s\n", myCity);
     }
 }
