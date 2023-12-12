@@ -1,8 +1,8 @@
 package com.volgir.homework.third.ex2.components;
 
 public class Mainboard {
-    private String name;
-    private String size;
+    private final String name;
+    private final String size;
 
     public Mainboard(String name, String size) {
         this.name = name;

@@ -10,6 +10,8 @@ import com.volgir.homework.third.ex2.Phone;
 import com.volgir.homework.third.ex2.Samsung;
 import com.volgir.homework.third.ex3.Pyramid1;
 import com.volgir.homework.third.ex4.LotteryTicket;
+import com.volgir.homework.third.ex5.City;
+import com.volgir.homework.third.ex5.House;
 
 public class Homework3 {
     public static void main(String[] args) {
@@ -23,6 +25,8 @@ public class Homework3 {
         ex3();
         System.out.println("________________________________________");
         ex4();
+        System.out.println("________________________________________");
+        ex5();
         System.out.println("________________________________________");
     }
 
@@ -49,13 +53,7 @@ public class Homework3 {
                 new Spruce(30, "мелкие")
         };
 
-        double sumOfAge = 0;
-        for (Tree tree : trees) {
-            sumOfAge += tree.getAge();
-        }
-        double averageAges = sumOfAge / trees.length;
-
-        System.out.printf("Средний возраст деревьев: %s\n", averageAges);
+        System.out.printf("Средний возраст деревьев: %s\n", Tree.averageAge(trees));
     }
 
     public static void ex2() {
@@ -142,5 +140,16 @@ public class Homework3 {
         //Создать два дома, создать город с массивом созданных городов
         //При получении домов из массива, и изменении данных (например замена улицы) у дома,
         //у домов внутри city ничего не поменяется. Т.е. при вызове toString, будут старые имена улицы.
+
+        // Создаем дома.
+        House house1 = new House("Ленина", 1);
+        House house2 = new House("Революционная", 1);
+
+        // Создаем город, с массивом созданных домов.
+        City myCity = new City("Вольск", new House[] {house1, house2});
+
+        // Вызываем печать города.
+        System.out.println(myCity);
+
     }
 }

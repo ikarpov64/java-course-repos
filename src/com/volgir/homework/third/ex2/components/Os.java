@@ -9,6 +9,6 @@ public class Os {
 
     @Override
     public String toString() {
-        return String.format("Система - %s.", os);
+        return String.format("Система - %s", os);
     }
 }

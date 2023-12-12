@@ -15,11 +15,11 @@ public abstract class Tree {
         this.age = age;
     }
 
-    public static double averageAges(Tree[] trees) {
-        double sumOfAge = 0;
+    public static double averageAge(Tree[] trees) {
+        double averageAge = 0;
         for (Tree tree : trees) {
-            sumOfAge += tree.getAge();
+            averageAge += tree.getAge();
         }
-        return sumOfAge / trees.length;
+        return averageAge / trees.length;
     }
 }

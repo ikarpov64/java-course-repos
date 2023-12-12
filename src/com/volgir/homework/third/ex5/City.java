@@ -12,24 +12,16 @@ public final class City {
         this.houses = houses;
     }
 
-    public House[] getHouse() {
+    public House[] getHouses() {
+        return duplicateArray();
+    }
+
+    private House[] duplicateArray() {
         House[] newHouses = new House[houses.length];
         for (int i = 0; i < houses.length; i++) {
             newHouses[i] = new House(houses[i]);
         }
         return newHouses;
-    }
-
-    public House[] getHouses() {
-        return replaceArrayOfHouses();
-    }
-
-    private House[] replaceArrayOfHouses() {
-        House[] replacedArrayOfHouses = new House[houses.length];
-        for (int i = 0; i < houses.length; i++) {
-            replacedArrayOfHouses[i] = new House(houses[i].getStreetName(), houses[i].getNumberOfHouse());
-        }
-        return replacedArrayOfHouses;
     }
 
     @Override
