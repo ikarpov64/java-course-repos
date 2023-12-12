@@ -6,7 +6,6 @@ import com.volgir.homework.third.ex1.trees.Pine;
 import com.volgir.homework.third.ex1.trees.Spruce;
 import com.volgir.homework.third.ex2.Factory;
 import com.volgir.homework.third.ex2.Iphone;
-import com.volgir.homework.third.ex2.Phone;
 import com.volgir.homework.third.ex2.Samsung;
 import com.volgir.homework.third.ex3.Pyramid1;
 import com.volgir.homework.third.ex4.LotteryTicket;
