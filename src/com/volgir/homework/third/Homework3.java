@@ -117,13 +117,15 @@ public class Homework3 {
         //иначе 0
         //Если совпало что билет одновременно десятый и сотый выбор в пользу сотого.
         //
-        //Создать здесь 100 билетов, и проверить по каждому удачу.
+        //Создать здесь 110 билетов, и проверить по каждому удачу.
         //Итоговая сумма выигрыша после проверки удачи 100 билетов должна составить 6_000.
-        for (int i = 0; i < 110; i++) {
+        int numberOfTickets = 110;
+        for (int i = 0; i < numberOfTickets; i++) {
             LotteryTicket ticket = new LotteryTicket();
             ticket.checkLuck();
         }
-        System.out.println(LotteryTicket.getWinningAmount());
+        System.out.printf("Количество билетов - %s. Выигрыш: %s руб.\n",
+                numberOfTickets, LotteryTicket.getWinningAmount());
     }
 
     public static void ex5() {
@@ -147,13 +149,13 @@ public class Homework3 {
         City myCity = new City("Вольск", new House[] {house1, house2});
 
         // Вызываем печать города до изменений.
-        System.out.printf("До изменений:\n%s\n", myCity);
+        System.out.printf("Город с домами до изменений:\n%s\n", myCity);
 
         // Получаем массив домов, по индексу в первом доме меняем данные.
         myCity.getHouses()[0].setStreetName("Новая улица");
         myCity.getHouses()[0].setNumberOfHouse(111);
 
         // Вызываем печать после изменений.
-        System.out.printf("После изменений:\n%s\n", myCity);
+        System.out.printf("Город с домами после изменений:\n%s\n", myCity);
     }
 }
