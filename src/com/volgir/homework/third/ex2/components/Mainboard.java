@@ -16,6 +16,6 @@ public class Mainboard {
 
     @Override
     public String toString() {
-        return String.format("Плата: %s, размеры: %sx%sx%s", name, width, length, height);
+        return String.format("Плата: %s, размеры (ШхДхВ): %sx%sx%s", name, width, length, height);
     }
 }
