@@ -2,15 +2,20 @@ package com.volgir.homework.third.ex2.components;
 
 public class Mainboard {
     private final String name;
-    private final String size;
+    private final int width;
+    private final int length;
+    private final int height;
 
-    public Mainboard(String name, String size) {
+
+    public Mainboard(String name, int width, int length, int height) {
         this.name = name;
-        this.size = size;
+        this.width = width;
+        this.length = length;
+        this.height = height;
     }
 
     @Override
     public String toString() {
-        return String.format("Плата: %s, размеры: %s", name, size);
+        return String.format("Плата: %s, размеры: %sx%sx%s", name, width, length, height);
     }
 }
