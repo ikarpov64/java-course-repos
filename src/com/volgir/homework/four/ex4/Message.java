@@ -32,9 +32,9 @@ public class Message {
     @Override
     public String toString() {
         if (this.isIncome) {
-            return String.format("Письмо от: %s: %s", this.fromUser, this.text);
+            return String.format("Письмо от %s: %s", this.fromUser.getUserName(), this.text);
         } else {
-            return String.format("Письмо к: %s: %s", this.toUser, this.text);
+            return String.format("Письмо к %s: %s", this.toUser.getUserName(), this.text);
         }
     }
 }

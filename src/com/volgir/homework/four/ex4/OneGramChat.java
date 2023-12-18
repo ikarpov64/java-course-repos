@@ -1,9 +1,7 @@
 package com.volgir.homework.four.ex4;
 
-import com.volgir.homework.four.ex4.ChatException.UserLimitException;
-import com.volgir.homework.four.ex4.ChatException.WrongCommandException;
-import com.volgir.homework.four.ex4.ChatException.WrongPasswordException;
-import com.volgir.homework.four.ex4.ChatException.WrongUserException;
+import com.volgir.homework.four.ex4.ChatException.*;
+
 import java.util.Scanner;
 
 public class OneGramChat {
@@ -29,14 +27,15 @@ public class OneGramChat {
         try {
             messageHandler(s);
         } catch (WrongCommandException | WrongUserException
-                 | WrongPasswordException | UserLimitException e) {
+                 | WrongPasswordException | UserLimitException
+                 | NotAuthorizedException e) {
             inputWaiting();
         }
     }
 
     private void messageHandler(String text) throws
             WrongCommandException, WrongUserException,
-            WrongPasswordException, UserLimitException {
+            WrongPasswordException, UserLimitException, NotAuthorizedException {
         if (text.equalsIgnoreCase("войти")) {
             System.out.println("Введите имя пользователя для входа:");
             String userName = scanner.nextLine();
@@ -60,8 +59,10 @@ public class OneGramChat {
             User user = findUser(scanner.nextLine());
             String message = scanner.nextLine();
             sendMessage(user, message);
+            inputWaiting();
         } else if (text.equalsIgnoreCase("прочитать")) {
             readMessage();
+            inputWaiting();
         } else {
             throw new WrongCommandException();
         }
@@ -104,13 +105,28 @@ public class OneGramChat {
         }
     }
 
-    private void sendMessage(User toUser, String text) {
-
+    private void sendMessage(User toUser, String text) throws NotAuthorizedException {
+        if (this.currentUser != null) {
+            Message outMessage = new Message(text, true, this.currentUser, toUser);
+            Message inMessage = new Message(text, false, this.currentUser, toUser);
+            toUser.setMessage(outMessage);
+            this.currentUser.setMessage(inMessage);
+        } else {
+            throw new NotAuthorizedException();
+        }
     }
 
-    private void readMessage() {
-        for (Message message : this.currentUser.getMessages()) {
-            System.out.println(message);
+    private void readMessage() throws NotAuthorizedException {
+        if (this.currentUser != null) {
+            for (Message message : this.currentUser.getMessages()) {
+                if (message != null) {
+                    System.out.println(message);
+                } else {
+                    break;
+                }
+            }
+        } else {
+            throw new NotAuthorizedException();
         }
     }
 

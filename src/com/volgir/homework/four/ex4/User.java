@@ -32,4 +32,13 @@ public class User {
         }
         return null;
     }
+
+    public void setMessage(Message message) {
+        for (int i = 0; i < MESSAGE_ARRAY_SIZE; i++) {
+            if (this.messages[i] == null) {
+                this.messages[i] = message;
+                break;
+            }
+        }
+    }
 }
