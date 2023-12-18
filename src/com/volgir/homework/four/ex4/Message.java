@@ -28,4 +28,13 @@ public class Message {
     public User getToUser() {
         return toUser;
     }
+
+    @Override
+    public String toString() {
+        if (this.isIncome) {
+            return String.format("Письмо от: %s: %s", this.fromUser, this.text);
+        } else {
+            return String.format("Письмо к: %s: %s", this.toUser, this.text);
+        }
+    }
 }
