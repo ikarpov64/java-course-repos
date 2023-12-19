@@ -10,8 +10,12 @@ public class Duck implements Flyable {
     @Override
     public void fly() throws FlyException {
         if (isInjured) {
-            throw new FlyException();
+            throw new FlyException("Ошибка: Утка ранена");
         }
         System.out.println("Утка летит");
+    }
+
+    public void setInjured(boolean injured) {
+        isInjured = injured;
     }
 }

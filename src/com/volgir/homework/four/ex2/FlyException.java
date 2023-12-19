@@ -1,7 +1,7 @@
 package com.volgir.homework.four.ex2;
 
 public class FlyException extends Exception {
-    public FlyException() {
-        super();
+    public FlyException(String message) {
+        super(message);
     }
 }

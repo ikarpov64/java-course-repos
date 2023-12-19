@@ -2,14 +2,14 @@ package com.volgir.homework.four.ex4;
 
 public class User {
     private static final int MESSAGE_ARRAY_SIZE = 100;
+    private int messageCount = 0;
     private final String userName;
     private final String password;
-    private Message[] messages;
+    private Message[] messages = new Message[MESSAGE_ARRAY_SIZE];
 
     public User(String userName, String password) {
         this.userName = userName;
         this.password = password;
-        this.messages = new Message[MESSAGE_ARRAY_SIZE];
     }
 
     public String getUserName() {
@@ -33,12 +33,16 @@ public class User {
         return null;
     }
 
-    public void setMessage(Message message) {
-        for (int i = 0; i < MESSAGE_ARRAY_SIZE; i++) {
-            if (this.messages[i] == null) {
-                this.messages[i] = message;
-                break;
-            }
+    public void setMessage(Message message) throws ChatException {
+        if (this.messageCount < MESSAGE_ARRAY_SIZE) {
+            this.messages[messageCount] = message;
+            this.messageCount++;
+        } else {
+            throw new ChatException("Превышен лимит сообщений.");
         }
+    }
+
+    public int getMessageCount() {
+        return messageCount;
     }
 }
