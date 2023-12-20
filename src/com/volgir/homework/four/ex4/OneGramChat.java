@@ -3,10 +3,10 @@ package com.volgir.homework.four.ex4;
 import java.util.Scanner;
 
 public class OneGramChat {
-    private static final int USERS_ARRAY_SIZE = 3;
+    private static final int MAXIMUM_USER_NUMBERS = 100;
     private final Scanner scanner = new Scanner(System.in);
     private int registeredUsersCount = 0;
-    private final User[] registeredUsers = new User[USERS_ARRAY_SIZE];
+    private final User[] registeredUsers = new User[MAXIMUM_USER_NUMBERS];
     private User currentUser;
 
     public void startChat() {
@@ -62,7 +62,7 @@ public class OneGramChat {
             throw new ChatException("Пароль не может быть пустым.");
         }
 
-        if (this.registeredUsersCount < USERS_ARRAY_SIZE) {
+        if (this.registeredUsersCount < MAXIMUM_USER_NUMBERS) {
             this.registeredUsers[this.registeredUsersCount] = new User(name, password);
             System.out.println("Пользователь создан: " + name);
             this.registeredUsersCount++;
