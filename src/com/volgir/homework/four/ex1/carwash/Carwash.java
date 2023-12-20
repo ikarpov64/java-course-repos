@@ -2,15 +2,14 @@ package com.volgir.homework.four.ex1.carwash;
 
 import com.volgir.homework.four.ex1.transport.Transport;
 
-import static com.volgir.homework.four.ex1.carwash.TransportCategory.BIG_CAR;
-import static com.volgir.homework.four.ex1.carwash.TransportCategory.SMALL_CAR;
-
 public class Carwash {
-    private static int washingCost;
+//    private static int washingCost;
 
     public static int washTransport(Transport transport) {
-        transport.setClear();
-        return 123;
+        String category = getTransportCategory(transport);
+        transport.setClean();
+        return category.equals("SMALL_CAR")
+                ? WashTariffs.SMALL_CAR.getPrice() : WashTariffs.BIG_CAR.getPrice();
     }
 
     public static int washTransport(Transport[] transports) {
@@ -19,10 +18,6 @@ public class Carwash {
             washingCost += washTransport(transport);
         }
         return washingCost;
-    }
-
-    private static int findWashingCost(String transportCategory) {
-        return SMALL_CAR.getPrice();
     }
 
     private static String getTransportCategory(Transport transport) {

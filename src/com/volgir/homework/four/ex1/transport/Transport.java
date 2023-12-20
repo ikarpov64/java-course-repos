@@ -1,26 +1,24 @@
 package com.volgir.homework.four.ex1.transport;
 
-import java.security.cert.TrustAnchor;
-
 public abstract class Transport {
-    private boolean isClear;
+    private boolean isClean;
     private final double width;
     private final double height;
     private final double length;
 
-    public Transport(boolean isClear, double width, double height, double length) {
-        this.isClear = isClear;
+    public Transport(boolean isClean, double width, double height, double length) {
+        this.isClean = isClean;
         this.width = width;
         this.height = height;
         this.length = length;
     }
 
-    public void setClear() {
-        isClear = true;
+    public void setClean() {
+        isClean = true;
     }
 
-    public boolean isClear() {
-        return isClear;
+    public boolean isClean() {
+        return isClean;
     }
 
     public double getWidth() {
@@ -38,7 +36,7 @@ public abstract class Transport {
     @Override
     public String toString() {
         return "Transport{"
-                + "isClear=" + isClear
+                + "isClear=" + isClean
                 + ", width=" + width
                 + ", height=" + height
                 + ", length=" + length

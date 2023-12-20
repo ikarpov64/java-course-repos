@@ -50,7 +50,7 @@ public class OneGramChat {
         }
     }
 
-    public void createUser() throws ChatException {
+    private void createUser() throws ChatException {
         System.out.println("Для регистрации пользователя, введите имя:");
         String name = scanner.nextLine();
         if (name.trim().isEmpty() || (User.getUser(this.registeredUsers, name) != null)) {
@@ -106,6 +106,10 @@ public class OneGramChat {
     }
 
     private void sendMessage() throws ChatException {
+        if (this.currentUser == null) {
+            throw new ChatException("Авторизуйтесь для отправки сообщений.");
+        }
+
         System.out.println("Введите имя пользователя для отправки сообщения:");
         User forUser = User.getUser(this.registeredUsers, scanner.nextLine());
         if (forUser == null) {
@@ -114,30 +118,24 @@ public class OneGramChat {
         System.out.println("Введите сообщение для отправки:");
         String text = scanner.nextLine();
 
-
-
-        if (this.currentUser != null) {
-            Message incomeMessage = new Message(text, true, this.currentUser, forUser);
-            Message outcomeMessage = new Message(text, false, this.currentUser, forUser);
-            forUser.setMessage(incomeMessage);
-            this.currentUser.setMessage(outcomeMessage);
-        } else {
-            throw new ChatException("Авторизуйтесь для отправки сообщений.");
-        }
+        Message incomeMessage = new Message(text, true, this.currentUser, forUser);
+        Message outcomeMessage = new Message(text, false, this.currentUser, forUser);
+        forUser.setMessage(incomeMessage);
+        this.currentUser.setMessage(outcomeMessage);
     }
 
     private void readMessage() throws ChatException {
-        if (this.currentUser != null) {
-            if (this.currentUser.getMessageCount() != 0) {
-                Message[] messages = this.currentUser.getMessages();
-                for (int i = 0; i < this.currentUser.getMessageCount(); i++) {
-                    System.out.println(messages[i]);
-                }
-            } else {
-                throw new ChatException("Список сообщений пуст.");
+        if (this.currentUser == null) {
+            throw new ChatException("Авторизуйтесь для чтения сообщений.");
+        }
+
+        if (this.currentUser.getMessageCount() != 0) {
+            Message[] messages = this.currentUser.getMessages();
+            for (int i = 0; i < this.currentUser.getMessageCount(); i++) {
+                System.out.println(messages[i]);
             }
         } else {
-            throw new ChatException("Для чтения сообщений необходима авторизация.");
+            throw new ChatException("Список сообщений пуст.");
         }
     }
 }
