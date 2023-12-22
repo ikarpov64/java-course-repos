@@ -8,7 +8,6 @@ public enum Commands {
     READ_MESSAGES("прочитать"),
     EXIT("exit");
 
-
     private final String command;
 
     Commands(String command) {

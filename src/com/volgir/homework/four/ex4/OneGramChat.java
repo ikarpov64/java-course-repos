@@ -106,9 +106,7 @@ public class OneGramChat {
     }
 
     private void sendMessage() throws ChatException {
-        if (this.currentUser == null) {
-            throw new ChatException("Авторизуйтесь для отправки сообщений.");
-        }
+        this.checkAuthorization("Авторизуйтесь для отправки сообщений.");
 
         System.out.println("Введите имя пользователя для отправки сообщения:");
         User forUser = User.getUser(this.registeredUsers, scanner.nextLine());
@@ -125,9 +123,7 @@ public class OneGramChat {
     }
 
     private void readMessage() throws ChatException {
-        if (this.currentUser == null) {
-            throw new ChatException("Авторизуйтесь для чтения сообщений.");
-        }
+        this.checkAuthorization("Авторизуйтесь для чтения сообщений.");
 
         if (this.currentUser.getMessageCount() != 0) {
             Message[] messages = this.currentUser.getMessages();
@@ -136,6 +132,12 @@ public class OneGramChat {
             }
         } else {
             throw new ChatException("Список сообщений пуст.");
+        }
+    }
+
+    private void checkAuthorization(String message) throws ChatException {
+        if (this.currentUser == null) {
+            throw new ChatException(message);
         }
     }
 }
