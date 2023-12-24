@@ -5,9 +5,11 @@ import java.sql.Array;
 public class Runner {
     public static void main(String[] args) {
 
-        Flyable[] flyables = {
-                new Duck(false), new Duck(true),
-                new Plane(10), new Plane(-1)};
+        Flyable[] flyables =
+            {
+            new Duck(false), new Duck(true),
+            new Plane(10), new Plane(-1)
+            };
 
 
         for (Flyable duck : flyables) {

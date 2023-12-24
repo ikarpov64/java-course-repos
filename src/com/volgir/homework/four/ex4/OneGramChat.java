@@ -3,10 +3,10 @@ package com.volgir.homework.four.ex4;
 import java.util.Scanner;
 
 public class OneGramChat {
-    private static final int USERS_ARRAY_SIZE = 3;
+    private static final int MAXIMUM_USER_NUMBERS = 100;
     private final Scanner scanner = new Scanner(System.in);
     private int registeredUsersCount = 0;
-    private final User[] registeredUsers = new User[USERS_ARRAY_SIZE];
+    private final User[] registeredUsers = new User[MAXIMUM_USER_NUMBERS];
     private User currentUser;
 
     public void startChat() {
@@ -62,7 +62,7 @@ public class OneGramChat {
             throw new ChatException("Пароль не может быть пустым.");
         }
 
-        if (this.registeredUsersCount < USERS_ARRAY_SIZE) {
+        if (this.registeredUsersCount < MAXIMUM_USER_NUMBERS) {
             this.registeredUsers[this.registeredUsersCount] = new User(name, password);
             System.out.println("Пользователь создан: " + name);
             this.registeredUsersCount++;
@@ -106,6 +106,8 @@ public class OneGramChat {
     }
 
     private void sendMessage() throws ChatException {
+        this.checkAuthorization("Авторизуйтесь для отправки сообщений.");
+
         System.out.println("Введите имя пользователя для отправки сообщения:");
         User forUser = User.getUser(this.registeredUsers, scanner.nextLine());
         if (forUser == null) {
@@ -114,30 +116,28 @@ public class OneGramChat {
         System.out.println("Введите сообщение для отправки:");
         String text = scanner.nextLine();
 
-
-
-        if (this.currentUser != null) {
-            Message incomeMessage = new Message(text, true, this.currentUser, forUser);
-            Message outcomeMessage = new Message(text, false, this.currentUser, forUser);
-            forUser.setMessage(incomeMessage);
-            this.currentUser.setMessage(outcomeMessage);
-        } else {
-            throw new ChatException("Авторизуйтесь для отправки сообщений.");
-        }
+        Message incomeMessage = new Message(text, true, this.currentUser, forUser);
+        Message outcomeMessage = new Message(text, false, this.currentUser, forUser);
+        forUser.setMessage(incomeMessage);
+        this.currentUser.setMessage(outcomeMessage);
     }
 
     private void readMessage() throws ChatException {
-        if (this.currentUser != null) {
-            if (this.currentUser.getMessageCount() != 0) {
-                Message[] messages = this.currentUser.getMessages();
-                for (int i = 0; i < this.currentUser.getMessageCount(); i++) {
-                    System.out.println(messages[i]);
-                }
-            } else {
-                throw new ChatException("Список сообщений пуст.");
+        this.checkAuthorization("Авторизуйтесь для чтения сообщений.");
+
+        if (this.currentUser.getMessageCount() != 0) {
+            Message[] messages = this.currentUser.getMessages();
+            for (int i = 0; i < this.currentUser.getMessageCount(); i++) {
+                System.out.println(messages[i]);
             }
         } else {
-            throw new ChatException("Для чтения сообщений необходима авторизация.");
+            throw new ChatException("Список сообщений пуст.");
+        }
+    }
+
+    private void checkAuthorization(String message) throws ChatException {
+        if (this.currentUser == null) {
+            throw new ChatException(message);
         }
     }
 }
