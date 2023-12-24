@@ -50,7 +50,7 @@ public class OneGramChat {
         }
     }
 
-    public void createUser() throws ChatException {
+    private void createUser() throws ChatException {
         System.out.println("Для регистрации пользователя, введите имя:");
         String name = scanner.nextLine();
         if (name.trim().isEmpty() || (User.getUser(this.registeredUsers, name) != null)) {
