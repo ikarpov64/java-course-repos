@@ -7,9 +7,9 @@ public class Runner {
         Dog dog = new Dog();
         Bird bird = new Bird();
 
-        Zoo<Tiger, Dog, Bird> zoo = new Zoo<>(tiger, dog, bird);
-        zoo.getAnimal1().roar();
-        zoo.getAnimal2().bark();
-        zoo.getAnimal3().fly();
+        Zoo<Tiger, Bird, Dog> zoo = new Zoo<>(tiger, bird, dog);
+        zoo.getTiger().roar();
+        zoo.getBird().fly();
+        zoo.getDog().bark();
     }
 }
