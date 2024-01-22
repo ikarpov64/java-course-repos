@@ -1,25 +1,25 @@
 package com.volgir.homework.module2.first.ex1;
 
-public class Zoo <T extends Animal, V extends Animal, K extends Animal> {
-    private T animal1;
-    private V animal2;
-    private K animal3;
+public class Zoo <T extends Tiger, B extends Bird, D extends Dog> {
+    private T tiger;
+    private B bird;
+    private D dog;
 
-    public Zoo(T animal1, V animal2, K animal3) {
-        this.animal1 = animal1;
-        this.animal2 = animal2;
-        this.animal3 = animal3;
+    public Zoo(T tiger, B bird, D dog) {
+        this.tiger = tiger;
+        this.bird = bird;
+        this.dog = dog;
     }
 
-    public T getAnimal1() {
-        return animal1;
+    public T getTiger() {
+        return tiger;
     }
 
-    public V getAnimal2() {
-        return animal2;
+    public B getBird() {
+        return bird;
     }
 
-    public K getAnimal3() {
-        return animal3;
+    public D getDog() {
+        return dog;
     }
 }
