@@ -1,17 +1,17 @@
 package com.volgir.homework.module2.second.ex1;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class LuggageArea {
     private static final int LUGGAGE_COUNT = 20;
     private static final int WORKERS_COUNT = 3;
     private Worker[] workers = new Worker[WORKERS_COUNT];
+    private List<Worker> workersList = new ArrayList<>();
     private Queue<Luggage> luggageQueue = new LinkedList<>();
 
-    public LuggageArea(Worker[] workers) {
+    public LuggageArea(Worker[] workers, List<Worker> workersList) {
         this.workers = workers;
+        this.workersList = workersList;
     }
 
     public void planeArrival(String flightNumber) {
