@@ -1,13 +1,10 @@
 package com.volgir.homework.module2.second.ex1;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class LuggageArea {
-    private static final int LUGGAGE_COUNT = 20;
-    private static final int WORKERS_COUNT = 3;
-    private Worker[] workers = new Worker[WORKERS_COUNT];
+    private static final int LUGGAGE_SIZE = 20;
+    private Worker[] workers;
     private Queue<Luggage> luggageQueue = new LinkedList<>();
 
     public LuggageArea(Worker[] workers) {
@@ -15,16 +12,23 @@ public class LuggageArea {
     }
 
     public void planeArrival(String flightNumber) {
-        for (int i = 0; i < LUGGAGE_COUNT; i++) {
+        for (int i = 0; i < LUGGAGE_SIZE; i++) {
             luggageQueue.add(new Luggage(flightNumber));
         }
     }
 
     public void unloadLuggageArea() {
         while (!luggageQueue.isEmpty()) {
-            for (Worker worker : workers) {
-                worker.throwBagWithScream(luggageQueue); // Работник обрабатывает багаж
-            }
+            unloadLuggage();
         }
     }
-}
+
+    private void unloadLuggage() {
+        for (Worker worker : workers) {
+            if (luggageQueue.isEmpty()) {
+                return;
+            }
+            worker.throwBagWithScream(luggageQueue); // Работник обрабатывает багаж
+        }
+    }
+ }
