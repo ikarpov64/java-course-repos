@@ -30,20 +30,7 @@ public class Runner {
             new Worker("Petr"),
             new Worker("Ali")};
 
-
-        List<Worker> workersList = new ArrayList<>();
-
-
-        Worker worker1 = new Worker("Worker1");
-        Worker worker2 = new Worker("Worker2");
-        Worker worker3 = new Worker("Worker3");
-
-        // Добавление объектов Worker в список
-        workersList.add(worker1);
-        workersList.add(worker2);
-        workersList.add(worker3);
-
-        LuggageArea luggageArea = new LuggageArea(workers, workersList);
+        LuggageArea luggageArea = new LuggageArea(workers);
 
         luggageArea.planeArrival("SU-077");
         luggageArea.planeArrival("AO-222");

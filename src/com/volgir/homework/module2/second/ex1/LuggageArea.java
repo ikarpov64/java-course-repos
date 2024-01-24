@@ -1,6 +1,7 @@
 package com.volgir.homework.module2.second.ex1;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class LuggageArea {
     private static final int LUGGAGE_SIZE = 20;

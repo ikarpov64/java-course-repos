@@ -29,6 +29,6 @@ public class Runner {
         // Для получения объекта по ключу типа Item(name),
         // необходимо переопределить метод equals таким образом,
         // чтобы объекты типа Item были равны друг-другу если равны поля name.
-        System.out.println(itemHashMap.get(new Item("Апельсин")));
+        System.out.println(itemHashMap.get(new Item("Апельсин"))); // Вывод: "3"
     }
 }
