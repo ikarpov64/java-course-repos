@@ -1,9 +1,6 @@
 package com.volgir.homework.module2.second.ex3;
 
-
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
 
 public class Runner {
     public static void main(String[] args) {
