@@ -5,16 +5,15 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Review {
-    int id;
+    private final int id;
+    private final LocalDateTime localDateTime = LocalDateTime.now();
     private String text;
     private int likesQty;
-    private LocalDateTime localDateTime;
 
-    public Review(int id, String text, int likesQty, LocalDateTime localDateTime) {
+    public Review(int id, String text, int likesQty) {
         this.id = id;
         this.text = text;
         this.likesQty = likesQty;
-        this.localDateTime = localDateTime;
     }
 
     @Override
