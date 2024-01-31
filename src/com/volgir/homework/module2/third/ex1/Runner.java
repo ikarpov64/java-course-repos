@@ -22,25 +22,24 @@ public class Runner {
     public static void main(String[] args) throws InterruptedException {
         // Thread.sleep() - для проверки.
         // Без Thread.sleep() - LocalDateTime у всех добавляемых объектов одинаковое (на моем ПК),
-        // и поэтому второе условие сортировки всегда возвращает равенство, т.е. 0.
+        // и второе условие сортировки всегда возвращает равенство, т.е. 0.
+        Set<Review> reviews = new HashSet<>();
+        reviews.add(new Review(1, "Все отлично", 200));
+        Thread.sleep(10);
+        reviews.add(new Review(2, "Все все так себе", 100));
+        Thread.sleep(10);
+        reviews.add(new Review(3, "Все плохо", 200));
 
+        List<Review> sortedReviews = new ArrayList<>(reviews);
         Comparator<Review> reviewComparator = (review1, review2) -> {
             int id = review2.getLikesQty() - review1.getLikesQty();
             if (id == 0) {
                 return review1.getLocalDateTime().compareTo(review2.getLocalDateTime());
             }
-
             return id;
         };
 
-        Set<Review> treeSetReview = new TreeSet<>();
-        treeSetReview.add(new Review(1, "Все отлично", 200));
-//        Thread.sleep(10);
-        treeSetReview.add(new Review(2, "Все все так себе", 100));
-//        Thread.sleep(10);
-        treeSetReview.add(new Review(3, "Все плохо", 200));
-
-        System.out.println(treeSetReview);
-        System.out.println("_________________________________________");
+        sortedReviews.sort(reviewComparator);
+        System.out.println(sortedReviews);
     }
 }
