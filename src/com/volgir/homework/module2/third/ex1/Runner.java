@@ -1,14 +1,13 @@
 package com.volgir.homework.module2.third.ex1;
 
-import java.time.LocalDateTime;
 import java.util.*;
 
 /**
  * Задание №1: сортировка отзывов.
  * Создать класс отзыв с полями: id отзыва, текст отзыва, количество лайков,
  * дата + время отзыва (LocalDateTime)
- * Создать коллекцию, которая хранит уникальные отзывы (уникальность по id),
- * В данной коллекции отзывы должны быть отсортированы.
+ * Создать коллекцию, которая хранит отсортированные отзывы по лайкам и дата + время отзыва,
+ * Уникальность определяется на основе сортировки.
  * Создать comparator через лямбда выражение, для сортировки отзывов:
  * сначала у кого больше лайков, если лайки совпадают, то сначала идут более новые отзывы
 
@@ -20,26 +19,27 @@ import java.util.*;
  */
 public class Runner {
     public static void main(String[] args) throws InterruptedException {
-        // Thread.sleep() - для проверки.
-        // Без Thread.sleep() - LocalDateTime у всех добавляемых объектов одинаковое (на моем ПК),
-        // и второе условие сортировки всегда возвращает равенство, т.е. 0.
-        Set<Review> reviews = new HashSet<>();
-        reviews.add(new Review(1, "Все отлично", 200));
-        Thread.sleep(10);
-        reviews.add(new Review(2, "Все все так себе", 100));
-        Thread.sleep(10);
-        reviews.add(new Review(3, "Все плохо", 200));
-
-        List<Review> sortedReviews = new ArrayList<>(reviews);
         Comparator<Review> reviewComparator = (review1, review2) -> {
-            int id = review2.getLikesQty() - review1.getLikesQty();
-            if (id == 0) {
-                return review1.getLocalDateTime().compareTo(review2.getLocalDateTime());
+            int likesComparison = Integer.compare(review2.getLikesQty(), review1.getLikesQty());
+            if (likesComparison != 0) {
+                return likesComparison;
             }
-            return id;
+
+            int dateTimeComparison = review1.getLocalDateTime().compareTo(review2.getLocalDateTime());
+            if (dateTimeComparison != 0) {
+                return dateTimeComparison;
+            }
+
+            return Integer.compare(review1.getId(), review2.getId());
         };
 
-        sortedReviews.sort(reviewComparator);
-        System.out.println(sortedReviews);
+        Set<Review> reviewSet = new TreeSet<>(reviewComparator);
+        reviewSet.add(new Review(1, "Все отлично", 200));
+        reviewSet.add(new Review(2, "Все так себе", 100));
+        reviewSet.add(new Review(3, "Все плохо", 200));
+        reviewSet.add(new Review(4, "Все плохо", 200));
+        reviewSet.add(new Review(5, "Все так себе", 201));
+
+        System.out.println(reviewSet);
     }
 }

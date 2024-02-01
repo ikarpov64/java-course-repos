@@ -45,4 +45,8 @@ public class Review {
     public int getLikesQty() {
         return likesQty;
     }
+
+    public int getId() {
+        return id;
+    }
 }
