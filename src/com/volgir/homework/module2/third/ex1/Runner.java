@@ -24,12 +24,10 @@ public class Runner {
             if (likesComparison != 0) {
                 return likesComparison;
             }
-
             int dateTimeComparison = review1.getLocalDateTime().compareTo(review2.getLocalDateTime());
             if (dateTimeComparison != 0) {
                 return dateTimeComparison;
             }
-
             return Integer.compare(review1.getId(), review2.getId());
         };
 
