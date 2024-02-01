@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Review {
     private final int id;
-    private final LocalDateTime localDateTime = LocalDateTime.now();
+    private LocalDateTime localDateTime = LocalDateTime.now();
     private String text;
     private int likesQty;
 
