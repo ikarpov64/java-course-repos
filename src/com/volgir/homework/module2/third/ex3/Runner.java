@@ -12,18 +12,9 @@ package com.volgir.homework.module2.third.ex3;
 
 public class Runner {
     public static void main(String[] args) {
-        Divination<String> chamomile = name -> {
-            if (name.length() % 2 == 0) {
-                return true;
-            }
-            return false;
-        };
-        Divination<Human> fortuneTeller = human -> {
-            if (human.getAge() + human.getHeight() > 210) {
-                return true;
-            }
-            return false;
-        };
+        Divination<String> chamomile = name -> name.length() % 2 == 0;
+
+        Divination<Human> fortuneTeller = human -> human.getAge() + human.getHeight() > 210;
 
         boolean chamomileResult = chamomile.tellFortunes("Тауриэль");
         System.out.println("Результат гадания: " + chamomileResult);
