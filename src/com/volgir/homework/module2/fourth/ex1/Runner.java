@@ -38,7 +38,7 @@ public class Runner {
         String doctorsLicensePlate = Stream.concat(carStream, carStream2)
                 .filter(car -> Integer.parseInt(car.getNumber().substring(1, 4)) >= 40
                         && Integer.parseInt(car.getNumber().substring(1, 4)) <= 50)
-                .map(car -> car.getNumber())
+                .map(Car::getNumber)
                 .collect(Collectors.joining(", "));
 
         System.out.println("Номера авто врачей: " + doctorsLicensePlate);
