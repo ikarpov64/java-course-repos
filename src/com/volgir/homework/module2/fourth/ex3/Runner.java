@@ -43,7 +43,7 @@ public class Runner {
         String above1000m = skyscrapers.stream()
                 .filter(skyscraper -> skyscraper.getHeight() > 1000)
                 .map(Skyscraper::getName)
-                .reduce((skyscraper, skyscraper2) -> String.format("%s, %s", skyscraper, skyscraper2))
+                .reduce((name1, name2) -> String.format("%s, %s", name1, name2))
                 .orElse("Небоскреба выше километра - нет.");
         System.out.println(above1000m);
         System.out.println("_________________________________");
