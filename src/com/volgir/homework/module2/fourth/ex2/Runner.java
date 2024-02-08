@@ -20,7 +20,7 @@ public class Runner {
                 .map(e -> e.length() - e.toLowerCase().replaceAll("о", "").length())
                 .reduce(Integer::sum)
                 .filter(e -> e != 0)
-                .orElseThrow(() -> new RuntimeException("Буква 'О' отсутствует в списке слов"));
+                .orElseThrow(() -> new RuntimeException("Буква 'О' отсутствует в словах списка"));
 
         System.out.println(letterCount);
     }
