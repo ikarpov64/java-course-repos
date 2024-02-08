@@ -24,61 +24,41 @@ import java.util.List;
  */
 public class Runner {
     public static void main(String[] args) {
-        Skyscraper worldTradeCenter = new Skyscraper("Всемирный торговый центр 1", 541);
-        Skyscraper shanghaiTower = new Skyscraper("Шанхайская башня", 632);
-        Skyscraper burjKhalifa = new Skyscraper("Бурдж-Халифа", 828);
-        Skyscraper pinganInternationalFinancialCenter =
-                new Skyscraper("Международный финансовый центр Пинань", 1599);
-        Skyscraper abrajAlBayt = new Skyscraper("Абрадж аль-Бейт", 1601);
-        Skyscraper lotteWorldCenter = new Skyscraper("Всемирный центр Лотте", 1555);
+        List<Skyscraper> skyscrapers = getSkyscrapers();
 
-
-        List<Skyscraper> skyscrapers = List.of(worldTradeCenter, shanghaiTower, burjKhalifa,
-                pinganInternationalFinancialCenter, abrajAlBayt, lotteWorldCenter, burjKhalifa);
-
+        // Убираем дубликаты, выводим первые 3 небоскреба.
         skyscrapers.stream()
                 .distinct()
                 .limit(3)
                 .forEach(System.out::println);
-
         System.out.println("_________________________________");
+
+        // Выводим самый высокий небоскреб
         skyscrapers.stream()
                 .max(Comparator.comparingInt(Skyscraper::getHeight))
-                .ifPresent(System.out::println);
-
+                .ifPresent(skyscraper -> System.out.println("Самый высокий небоскреб: " + skyscraper));
         System.out.println("_________________________________");
-//        skyscrapers.stream()
-//                .peek(skyscraper -> {
-//                    if (skyscraper.getHeight() > 1000) {
-//                        System.out.println("Небоскреб выше 1000м: " + skyscraper);
-//                    }
-//                })
-//                .filter(skyscraper -> skyscraper.getHeight() > 1000)
-//                .findFirst()
-//                .orElseGet(() -> {
-//                    System.out.println("Небоскреба выше километра - нет");
-//                    return null;
-//                });
 
-
-        skyscrapers.stream()
-                .peek(skyscraper -> {
-                    if (skyscraper.getHeight() > 1000) {
-                        System.out.println("Небоскреб выше 1000м: " + skyscraper);
-                    }
-                })
-                .filter(skyscraper -> skyscraper.getHeight() > 1000).findAny().orElseGet(() -> {
-                    System.out.println("sdad"); return null;});
-//                .forEach(System.out::println);
-//                .findFirst()
-//                .orElseGet(() -> {
-//                    System.out.println("Небоскреба выше километра - нет");
-//                    return null;
-//                });
-
-        skyscrapers.stream()
+        // Собираем строку из небоскребов выше 1км, или строка об отсутствии таких.
+        String above1000m = skyscrapers.stream()
                 .filter(skyscraper -> skyscraper.getHeight() > 1000)
-                .peek(skyscraper -> System.out.println(skyscraper))
-                .findFirst().ifPresent(System.out::println);
+                .map(Skyscraper::getName)
+                .reduce((name1, name2) -> String.format("%s, %s", name1, name2))
+                .orElse("Небоскреба выше километра - нет.");
+        System.out.println(above1000m);
+        System.out.println("_________________________________");
+    }
+
+    private static List<Skyscraper> getSkyscrapers() {
+        Skyscraper worldTradeCenter = new Skyscraper("Всемирный торговый центр 1", 541);
+        Skyscraper shanghaiTower = new Skyscraper("Шанхайская башня", 632);
+        Skyscraper burjKhalifa = new Skyscraper("Бурдж-Халифа", 828);
+        Skyscraper pinganInternationalFinancialCenter =
+                new Skyscraper("Международный финансовый центр Пинань", 599);
+        Skyscraper abrajAlBayt = new Skyscraper("Абрадж аль-Бейт", 601);
+        Skyscraper lotteWorldCenter = new Skyscraper("Всемирный центр Лотте", 555);
+
+        return List.of(worldTradeCenter, shanghaiTower, burjKhalifa,
+                pinganInternationalFinancialCenter, abrajAlBayt, lotteWorldCenter, burjKhalifa);
     }
 }
