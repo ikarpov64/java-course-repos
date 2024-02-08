@@ -2,6 +2,7 @@ package com.volgir.homework.module2.fourth.ex1;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
@@ -19,26 +20,19 @@ import java.util.stream.Stream;
  */
 public class Runner {
     public static void main(String[] args) {
-        AtomicInteger counter = new AtomicInteger();
-        AtomicInteger counter2 = new AtomicInteger();
-        counter.set(0);
         String licensePlateTemplate1 = "а%03dан799";
         String licensePlateTemplate2 = "к%03dсе178";
+        String doctorsLicensePlatesTemplate = ".*04[0-9].*";
 
-        Stream<Car> carStream = Stream.generate(() -> new Car(
-                String.format(licensePlateTemplate1, counter.addAndGet(1))))
-                .limit(50);
+        Stream<Car> carStream = IntStream.range(1, 51)
+                .mapToObj(i -> new Car(String.format(licensePlateTemplate1, i)));
 
-        counter2.set(0);
-
-        Stream<Car> carStream2 = Stream.generate(() -> new Car(
-                String.format(licensePlateTemplate2, counter2.addAndGet(1))))
-                .limit(50);
+        Stream<Car> carStream2 = IntStream.range(1, 51)
+                .mapToObj(i -> new Car(String.format(licensePlateTemplate2, i)));
 
         String doctorsLicensePlate = Stream.concat(carStream, carStream2)
-                .filter(car -> Integer.parseInt(car.getNumber().substring(1, 4)) >= 40
-                        && Integer.parseInt(car.getNumber().substring(1, 4)) <= 50)
-                .map(car -> car.getNumber())
+                .map(Car::getNumber)
+                .filter(number -> number.matches(doctorsLicensePlatesTemplate))
                 .collect(Collectors.joining(", "));
 
         System.out.println("Номера авто врачей: " + doctorsLicensePlate);

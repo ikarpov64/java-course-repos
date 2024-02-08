@@ -47,19 +47,6 @@ public class Runner {
                 .ifPresent(System.out::println);
 
         System.out.println("_________________________________");
-//        skyscrapers.stream()
-//                .peek(skyscraper -> {
-//                    if (skyscraper.getHeight() > 1000) {
-//                        System.out.println("Небоскреб выше 1000м: " + skyscraper);
-//                    }
-//                })
-//                .filter(skyscraper -> skyscraper.getHeight() > 1000)
-//                .findFirst()
-//                .orElseGet(() -> {
-//                    System.out.println("Небоскреба выше километра - нет");
-//                    return null;
-//                });
-
 
         skyscrapers.stream()
                 .peek(skyscraper -> {
@@ -69,12 +56,7 @@ public class Runner {
                 })
                 .filter(skyscraper -> skyscraper.getHeight() > 1000).findAny().orElseGet(() -> {
                     System.out.println("sdad"); return null;});
-//                .forEach(System.out::println);
-//                .findFirst()
-//                .orElseGet(() -> {
-//                    System.out.println("Небоскреба выше километра - нет");
-//                    return null;
-//                });
+
 
         skyscrapers.stream()
                 .filter(skyscraper -> skyscraper.getHeight() > 1000)
