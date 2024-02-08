@@ -30,11 +30,11 @@ public class Runner {
         Stream<Car> carStream2 = IntStream.range(1, 51)
                 .mapToObj(i -> new Car(String.format(licensePlateTemplate2, i)));
 
-        String doctorsLicensePlate = Stream.concat(carStream, carStream2)
+        String doctorsLicensePlates = Stream.concat(carStream, carStream2)
                 .map(Car::getNumber)
                 .filter(number -> number.matches(doctorsLicensePlatesTemplate))
                 .collect(Collectors.joining(", "));
 
-        System.out.println("Номера авто врачей: " + doctorsLicensePlate);
+        System.out.println("Номера авто врачей: " + doctorsLicensePlates);
     }
 }
